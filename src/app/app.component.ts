@@ -1,7 +1,7 @@
 import {Component} from '@angular/core'
 import { bootstrapApplication } from '@angular/platform-browser'
 import { AppModule } from './app.module';
-import { MyCalculatorComponent } from "./components/my-calculator/my-calculator.component";
+import { MyCalculatorComponent } from "./calculator/components/my-calculator.component";
 
 @Component ({
   selector: 'app-root', 
