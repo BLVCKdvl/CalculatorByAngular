@@ -1,3 +1,7 @@
+# Calculator
+
+My first Angular pet project. Now I'm taking a free course from a little-known blogger and sharing my new knowledge here, as well as reporting on the work done
+
 # AngularCourse
 
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.5.
