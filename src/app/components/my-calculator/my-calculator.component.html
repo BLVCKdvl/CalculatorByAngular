@@ -1,0 +1,80 @@
+<div class="calculator">
+    <h2 class="calculator_title">Калькулятор</h2>
+
+    <ng-container *ngFor="let group of calcGroups; let i = index">
+        <div class="calculator_view">  
+            <span>(</span>
+            <select class="calculator_modifier" [(ngModel)]="group.first.modifier">
+                <option class="calculator_modifier"
+                    [value]="modifier.value" 
+                    *ngFor="let modifier of calcModifiers | keyvalue"
+                >
+                    {{modifier.value}}
+                </option>
+            </select>
+            <input 
+                type="number" 
+                class="calculator_input" 
+                [(ngModel)]="group.first.value"
+            />
+            
+            <select class="calculator_select" [(ngModel)]="group.operation">
+                <option 
+                    [value]="operation.value" 
+                    *ngFor="let operation of calcOperations | keyvalue"
+                >
+                    {{operation.value}}
+                </option>
+            </select>
+
+            <select class="calculator_modifier" [(ngModel)]="group.second.modifier">
+                <option 
+                    [value]="modifier.value" 
+                    *ngFor="let modifier of calcModifiers | keyvalue"
+                >
+                    {{modifier.value}}
+                </option>
+            </select>
+            <input 
+                type="number" 
+                class="calculator_input" 
+                [(ngModel)]="group.second.value"
+            />   
+            <span>)</span>     
+            
+            <button *ngIf="i != 0" (click)="removeGroup(i)">del</button>
+        </div>   
+
+        <select 
+            class="calculator_select"
+            [(ngModel)]="operationsBetweenGroups[i]"
+            *ngIf="operationsBetweenGroups.length > 1"
+        >
+            <option
+                [value]="operation.value"
+                *ngFor="let operation fo calcOperations | keyvalue"
+            >
+                {{operation.value}}
+            </option>
+        </select>
+    </ng-container>
+    
+    <span class="calculator_result">
+        Результат: 
+        <span>
+            {{result ? result : 'Нажмите расчитать!'}}
+        </span>
+    </span>
+
+    <div class="calculator_history">
+        <span class="calculator_history-title">История операций:</span>
+        <span *ngFor="let obj of history; let i = index">{{i + 1}} {{obj}} </span>
+    </div>
+
+    <div class="calculator_buttons">
+        <button class="calculator_btn" (click)="calcGroup()">Расчитать</button>
+        <button class="calculator_btn" (click)="addGroup()">
+            Добавить группу
+        </button>
+    </div>
+</div>
