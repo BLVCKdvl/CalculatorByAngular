@@ -1,10 +1,13 @@
 import { NgModule } from "@angular/core";
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppComponent } from "./app.component";
 import { MyCalculatorModule } from "./my-calculator.module";
 import { AppRoutingModule } from "./app-routing.module";
+import { MyNavigation } from "./components/navigation/navigation.component";
+import { MyEmptyPage } from "./components/empty-route/empty-route.component";
+import { RouterModule } from "@angular/router";
 
 @NgModule({
     imports: [ 
@@ -12,7 +15,10 @@ import { AppRoutingModule } from "./app-routing.module";
         ReactiveFormsModule,
         AppComponent,
         AppRoutingModule,
-        MyCalculatorModule
+        MyCalculatorModule,
+        MyNavigation,
+        MyEmptyPage,
+        RouterModule,
     ],
     providers: [],
     bootstrap: [AppComponent]
